@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqxrg27vrkwtk"]
+
+[ext_resource type="Texture2D" uid="uid://c1r1xfo7qooru" path="res://assets/skybg.png" id="1_7oh1j"]
+[ext_resource type="Texture2D" uid="uid://b7pljicq8kks7" path="res://assets/ground.png" id="2_fxij1"]
+[ext_resource type="PackedScene" uid="uid://b68d5ao34ilaf" path="res://player.tscn" id="3_bubph"]
+[ext_resource type="PackedScene" uid="uid://cdehkm54dq2fk" path="res://goal.tscn" id="4_cc372"]
+[ext_resource type="PackedScene" uid="uid://dg3yb1hal5rg1" path="res://enemy.tscn" id="5_dvu3c"]
+[ext_resource type="PackedScene" uid="uid://bcah7thhbvalt" path="res://coin.tscn" id="6_t7bll"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_su4i0"]
+size = Vector2(1269, 626)
+
+[node name="Stage1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(578, 922)
+shape = SubResource("RectangleShape2D_su4i0")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(-126, -671)
+scale = Vector2(4, 4)
+texture = ExtResource("1_7oh1j")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(578, 922)
+scale = Vector2(8, 4)
+texture = ExtResource("2_fxij1")
+
+[node name="Player" parent="." instance=ExtResource("3_bubph")]
+position = Vector2(558, 272)
+
+[node name="Goal" parent="." instance=ExtResource("4_cc372")]
+position = Vector2(1092, 272)
+
+[node name="Enemy" parent="." instance=ExtResource("5_dvu3c")]
+position = Vector2(743, 467)
+move_speed = -10
+can_tread = true
+
+[node name="Enemy2" parent="." instance=ExtResource("5_dvu3c")]
+position = Vector2(157, 475)
+move_speed = 10
+can_tread = true
+
+[node name="Enemy3" parent="." instance=ExtResource("5_dvu3c")]
+position = Vector2(366, 466)
+move_speed = 10
+can_tread = true
+
+[node name="Coin" parent="." instance=ExtResource("6_t7bll")]
+position = Vector2(681, 517)
+
+[node name="Coin2" parent="." instance=ExtResource("6_t7bll")]
+position = Vector2(726, 474)
+
+[node name="Coin3" parent="." instance=ExtResource("6_t7bll")]
+position = Vector2(775, 475)
+
+[node name="Coin4" parent="." instance=ExtResource("6_t7bll")]
+position = Vector2(822, 516)
