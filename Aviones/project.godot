@@ -10,16 +10,25 @@ config_version=5
 
 [application]
 
-config/name="TowerDefense"
-run/main_scene="res://main.tscn"
+config/name="Aviones"
+run/main_scene="res://boot.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-al_common="*res://common.gd"
-al_soldier="*res://soldier.tscn"
+Game="*res://game.gd"
+Hud="*res://hud.tscn"
+Sound="*res://sound.tscn"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=240
+window/size/window_width_override=640
+window/size/window_height_override=480
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
-project/assembly_name="TowerDefense"
+project/assembly_name="Aviones"
